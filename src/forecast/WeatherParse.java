@@ -13,7 +13,7 @@ import obj.Response;
 
 public class WeatherParse {		
 
-	public static Response Parse(URL src) throws IOException {
+	public Response parse(URL src) throws IOException { //retrieves the json information from the url passed
 		Gson gson = new Gson();
 		URL url = src;
 		HttpURLConnection conn = (HttpURLConnection)url.openConnection();

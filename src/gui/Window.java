@@ -23,13 +23,12 @@ public class Window extends Application{
 		Location entry = new Location();
 		WeatherFetch WF = new WeatherFetch(entry);
 		Pane canvas = new Pane();
-		canvas.setStyle("-fx-background-color: blue;");
-	    canvas.setPrefSize(100,100);
 		TextField tf = new TextField("Enter zip code");
 		Button subB = new Button("Check weather");
-		
-
 		Parent content = canvas;
+	
+		canvas.setStyle("-fx-background-color: blue;");
+	    canvas.setPrefSize(100,100); 
 	    canvas.getChildren().addAll(tf,subB);
 	    tf.relocate(75, 25);
 	    subB.relocate(245, 24);
@@ -42,12 +41,12 @@ public class Window extends Application{
 				res = WF.fetch();	
 				//WeatherForecast.Forecast(res);//This will make the results pretty and have it written as .toString() which needs to be formatted too.
 
+				
+				
+				
 				System.out.println("Currently feels like: "+ res.getMain().getFeelsLike()+DEGREE+"F");//for debug rn
-				System.out.println("Currently feels like: "+ res.getWeather().get(0).getId());
-				//TODO Display results to window, not sysout
-				
-				
-				
+				System.out.println("Current weather conditions: "+ res.getWeather().get(0).getDescription());
+				//TODO Display results to window, not sysout	
 			} catch (IOException e1) {
 			
 				e1.printStackTrace();
